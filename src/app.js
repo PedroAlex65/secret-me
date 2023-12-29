@@ -1,14 +1,64 @@
 import styled from "styled-components";
 
+// Nav
+export const FatherItem = styled.header`
+  max-width: 1920px;
+  padding: 15px;
+  margin: 0 auto;
+  background-color: #db7093;
+`;
+
+export const Item = styled.header`
+  display: flex;
+  justify-content: space-between;
+  color: #000;
+`;
+export const ContainerButton = styled.div`
+  display: flex;
+  gap: 12px;
+
+  .container-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 67px;
+
+    .data-users {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+      h3 {
+        color: #fff;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+      }
+    }
+  }
+`;
+export const Button = styled.button`
+  display: flex;
+  width: 151px;
+  height: 38px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+`;
+
+// Login Google
+
 export const GoogleScreen = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform:  translate(-50%, -50%);
 `;
 
 export const Google = styled.div`
