@@ -13,6 +13,7 @@ import logoSecret from "./assets/logo-secret.svg";
 import logoPerson from "./assets/person.svg";
 import { InvalidTokenError, jwtDecode } from "jwt-decode";
 
+
 function App() {
   const [user, setUser] = React.useState(null);
 
@@ -20,14 +21,12 @@ function App() {
 
   const [renderGoogleButton, setRenderGoogleButton] = React.useState(!true);
 
-  const [local, setLoca] = React.useState();
-
   //ssssssssssssssssssssssssssssssssssss
 
   function handleCallbackResponse(response) {
     let userObject = jwtDecode(response.credential);
 
-    localStorage.setItem("acessToken", response.credential);
+    localStorage.setItem("accessToken", response.credential);
 
     setUser(userObject);
     console.log(userObject);
@@ -37,18 +36,17 @@ function App() {
   }
   const storedToken = localStorage.getItem("accessToken");
 
-  if (storedToken) {
-    try {
-      const userObject = jwtDecode(storedToken);
-      setUser(userObject);
-      console.log('');
-    } catch (error) {
-      localStorage.removeItem("accessToken");
-      console.error("Erro ao decodificar o token", error);
-    }
-  }
   // Feito
   React.useEffect(() => {
+    if (storedToken) {
+      try {
+        const userObject = jwtDecode(storedToken);
+        setUser(userObject);
+      } catch (error) {
+        localStorage.removeItem("accessToken");
+        console.error("Erro ao decodificar o token", error);
+      }
+    }
     // Global google
 
     if (renderGoogleButton) {
@@ -142,7 +140,6 @@ function App() {
       {/* Fim Login google */}
 
       <SecretMessages clickButton={clickButton} setUser={setUser} user={user} />
-      <Footer />
     </div>
   );
 }

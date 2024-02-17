@@ -6,27 +6,39 @@ import {
   InputCheckBox,
   ContainerFather,
 } from "./secret-Messages";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function SecretMessages({ user, setUser }) {
   const [nome, setNome] = useState("");
-  function handleLink() {
-    if (user !== null) {
-      console.log("Login efetuado");
-      console.log(user.name);
-    } else {
-      console.log("Faça login");
-    }
-  }
+  const navigate = useNavigate();
 
-  function handleSubmit(event){
-    event.preventDefault()
+  const mensagemPadrao = "Por favor, marque o checkbox antes de prosseguir.";
+
+  const [isChecked, setChecked] = useState(false);
+
+  const linkGenerated = `${"https://leave-message/m"}`;
+
+  function handleSubmit(event) {
+    event.preventDefault();
     console.log(event);
   }
 
+  function handleClick() {
+    if (isChecked) {
+      if (localStorage.getItem("accessToken")) {
+        console.log("Esse é o token");
+        navigate("/createLink");
+      } else {
+      return ""
+      }
+      console.log("Input Tem Valor");
+    } else {
+      console.log("Input Sem valor");
+    }
+  }
 
   return (
     <ContainerFather>
-
       <MainContainer>
         <Texts className="texts">
           <h1>
@@ -46,23 +58,36 @@ function SecretMessages({ user, setUser }) {
         </Texts>
         <IputsTexts onSubmit={handleSubmit} className="inputs-links">
           <h2>Digite seu Nome-</h2>
+          <input
+            oninvalid="this.setCustomValidity('Enter User Name Here')"
+            value={nome}
+            onChange={(event) => setNome(event.target.value)}
+            className="input-nickName"
+            type="text"
+            placeholder="@Apelido"
+            required
+          />
+
+          <button className="btn" onClick={handleClick}>
+            Crie seu Link💎
+          </button>
+
+          <InputCheckBox className="privacy-terms">
             <input
-              value={nome}
-              onChange={(event) => setNome(event.target.value)}
-              className="input-nickName"
-              type="text"
-              placeholder="@Apelido"
+              onInvalid={(e) =>
+                e.target.setCustomValidity("Your custom message")
+              }
+              type="checkbox"
+              onChange={() => setChecked(!isChecked)}
+              required
+              title="Marque a porra do checkbox"
             />
-            {nome}
-            <button onClick={handleLink}>Crie seu Link💎</button>
-            <InputCheckBox className="privacy-terms">
-              <input type="checkbox" required/>
-              <p>
-                {" "}
-                Você concorda com a Política de Privacidade e os Termos e
-                Condições do nosso site.
-              </p>
-            </InputCheckBox>
+            <p>
+              {" "}
+              Você concorda com a Política de Privacidade e os Termos e
+              Condições do nosso site.
+            </p>
+          </InputCheckBox>
         </IputsTexts>
       </MainContainer>
     </ContainerFather>

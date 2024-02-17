@@ -88,7 +88,7 @@ export const IputsTexts = styled.form`
       box-shadow: 0px 0px 0px 6px rgba(0, 123, 255, 0.25); /* Ajuste os valores do box-shadow ao passar o mouse */
     }
   }
-  button {
+  .btn {
     margin-top: 20px;
     width: 384px;
     height: 38px;
