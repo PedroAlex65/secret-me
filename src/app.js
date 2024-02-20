@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Logo from "./assets/input-email.png";
-import Senha from "./assets/input-olho.svg";
+import Senha from "./assets/input-olho.png";
 // Nav
 export const FatherItem = styled.header`
   background-color: #db7093;

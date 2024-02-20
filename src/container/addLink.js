@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
 
-import Instagram from "../assets/instagram.svg";
+import Copy from "../assets/copy.png"
+import Instagram from "../assets/instagram.png"
+import WhatsApp  from "../assets/whatsapp.png"
+import Facebook  from "../assets/messenger.png"
+
 
 export const Container = styled.div`
   display: flex;
@@ -34,6 +38,8 @@ export const Container = styled.div`
       text-align: center;
     }
     button {
+      background-image: url(${Copy});
+
       background-position: 100px;
       background-repeat: no-repeat;
       background-color: #6c757d;
@@ -74,6 +80,8 @@ export const Container = styled.div`
     }
     .whatsapp {
       background-position: 100px;
+      background-image: url(${WhatsApp});
+
       background-repeat: no-repeat;
       text-align: center;
       background-color: #39e11d;
@@ -89,6 +97,7 @@ export const Container = styled.div`
     
     .facebook {
       background-position: 130px;
+      background-image: url(${Facebook});
       background-repeat: no-repeat;
       text-align: center;
       background-color: #4950f3;
