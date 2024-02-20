@@ -13,21 +13,14 @@ import logoSecret from "./assets/logo-secret.svg";
 import logoPerson from "./assets/person.svg";
 import { InvalidTokenError, jwtDecode } from "jwt-decode";
 
-
 function App() {
   const [user, setUser] = React.useState(null);
-
-  const [clickButton, setClickButton] = React.useState(false);
-
+  const [clickButton, setClickButton] = React.useState(false)
   const [renderGoogleButton, setRenderGoogleButton] = React.useState(!true);
-
-  //ssssssssssssssssssssssssssssssssssss
 
   function handleCallbackResponse(response) {
     let userObject = jwtDecode(response.credential);
-
     localStorage.setItem("accessToken", response.credential);
-
     setUser(userObject);
     console.log(userObject);
     document.getElementById("signInDiv").hidden = true;
@@ -47,8 +40,8 @@ function App() {
         console.error("Erro ao decodificar o token", error);
       }
     }
-    // Global google
 
+    // Global google
     if (renderGoogleButton) {
       window.google.accounts.id.initialize({
         client_id:
@@ -139,7 +132,7 @@ function App() {
 
       {/* Fim Login google */}
 
-      <SecretMessages clickButton={clickButton} setUser={setUser} user={user} />
+      <SecretMessages setRenderGoogleButton={setRenderGoogleButton} setClickButton={setClickButton} clickButton={clickButton} setUser={setUser} user={user} />
     </div>
   );
 }

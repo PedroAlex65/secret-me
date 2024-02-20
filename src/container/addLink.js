@@ -50,6 +50,15 @@ export const Container = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
+
+      &:hover{
+        opacity: 0.9;
+        transition: .5s ease;
+      }
+      &:active{
+        scale: .9.9;
+
+      }
     }
 
     .instagram {
@@ -101,7 +110,7 @@ export const Container = styled.div`
     }
 
     .check {
-      background-image: url(${Check});
+      background-image: none;
       background-repeat: no-repeat;
       align-items: center;
       width: 300px;

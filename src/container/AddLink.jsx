@@ -1,6 +1,14 @@
+import { useState } from "react";
 import { Container } from "./addLink";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 function AddLinks() {
+  const [inputValue, setInputValue] = useState("");
+
+  function toCopy() {
+    console.log("Link Copiado");
+  }
+
   return (
     <Container className="">
       <div className="information-box">
@@ -8,12 +16,16 @@ function AddLinks() {
           Compartilhe este link com seus amigos e colete Mensagens Anônimas.
         </h1>
         <input
-          placeholder="https://leave-message/m/p41h90r3?s=2"
           type="text"
-          name=""
-          id=""
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          placeholder="https://leave-message/m/p41h90r3?s=2"
+          readOnly
         />
-        <button>Click to copy</button>
+
+        <CopyToClipboard text={inputValue}>
+          <button>Click to Copy</button>
+        </CopyToClipboard>
         <a href="#" className="instagram">
           Add to Story
         </a>

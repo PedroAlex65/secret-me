@@ -8,11 +8,15 @@ import {
 } from "./secret-Messages";
 import { NavLink, useNavigate } from "react-router-dom";
 
-function SecretMessages({ user, setUser }) {
+function SecretMessages({
+  user,
+  setUser,
+  clickButton,
+  setClickButton,
+  setRenderGoogleButton,
+}) {
   const [nome, setNome] = useState("");
   const navigate = useNavigate();
-
-  const mensagemPadrao = "Por favor, marque o checkbox antes de prosseguir.";
 
   const [isChecked, setChecked] = useState(false);
 
@@ -29,7 +33,8 @@ function SecretMessages({ user, setUser }) {
         console.log("Esse é o token");
         navigate("/createLink");
       } else {
-      return ""
+        setClickButton(true);
+        setRenderGoogleButton(true);
       }
       console.log("Input Tem Valor");
     } else {
