@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Logo from "./assets/input-email.svg";
+import Logo from "./assets/input-email.png";
 import Senha from "./assets/input-olho.svg";
 // Nav
 export const FatherItem = styled.header`
