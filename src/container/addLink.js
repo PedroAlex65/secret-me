@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+
+import Instagram from "../assets/instagram.svg";
+
 export const Container = styled.div`
   display: flex;
   height: 100vh;
@@ -44,17 +47,19 @@ export const Container = styled.div`
       justify-content: center;
       align-items: center;
 
-      &:hover {
+      &:hover{
         opacity: 0.9;
-        transition: 0.5s ease;
+        transition: .5s ease;
       }
-      &:active {
-        scale: 0.9.9;
+      &:active{
+        scale: .9.9;
+
       }
     }
 
     .instagram {
       background-position: 100px;
+      background-image: url(${Instagram});
       background-repeat: no-repeat;
       text-align: center;
       background-color: #dd2a7b;
@@ -69,7 +74,6 @@ export const Container = styled.div`
     }
     .whatsapp {
       background-position: 100px;
-
       background-repeat: no-repeat;
       text-align: center;
       background-color: #39e11d;
@@ -82,7 +86,7 @@ export const Container = styled.div`
       justify-content: center;
       align-items: center;
     }
-
+    
     .facebook {
       background-position: 130px;
       background-repeat: no-repeat;
@@ -108,6 +112,6 @@ export const Container = styled.div`
       color: #6c757d;
       font-size: 20px;
       font-weight: 500;
-    }
+    } 
   }
 `;
