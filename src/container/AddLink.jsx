@@ -5,9 +5,6 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 function AddLinks() {
   const [inputValue, setInputValue] = useState("");
 
-  function toCopy() {
-    console.log("Link Copiado");
-  }
 
   return (
     <Container className="">
@@ -26,14 +23,14 @@ function AddLinks() {
         <CopyToClipboard text={inputValue}>
           <button>Click to Copy</button>
         </CopyToClipboard>
-        <a href="#" className="instagram">
+        <a className="instagram">
           Add to Story
         </a>
 
-        <a href="#" className="whatsapp">
+        <a className="whatsapp">
           Add to Status
         </a>
-        <a href="#" className="facebook">
+        <a className="facebook">
           Share
         </a>
         <button className="check">Check Messages</button>
